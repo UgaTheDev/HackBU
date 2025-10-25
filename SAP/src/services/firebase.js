@@ -1,10 +1,17 @@
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDqhZj193pZn4P_Q_PiWdEUn8hZRrLiYxY",
-  authDomain: "smartacademicplanner-952d9.firebaseapp.com",
-  projectId: "smartacademicplanner-952d9",
-  storageBucket: "smartacademicplanner-952d9.firebasestorage.app",
-  messagingSenderId: "963307198993",
-  appId: "1:963307198993:web:660d42004aec0616c0efb0",
-  measurementId: "G-TLN380DV2K"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
+
+const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app);
+export const auth = getAuth(app);
